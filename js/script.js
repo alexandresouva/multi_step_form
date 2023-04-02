@@ -1,6 +1,7 @@
 'use strict';
 import { masks } from './inputMasks.js';
 import isValidCPF from './cpfValidator.js';
+import has18Years from './ageValidator.js';
 
 const $formFields = document.querySelectorAll('[required]');
 const $cpf = document.querySelector('#cpf');
@@ -11,10 +12,21 @@ $cpf.addEventListener('input', () => {
 });
 
 // APPLY VALIDATIONS
-$formFields.forEach((field) =>
-  field.addEventListener('blur', () => validadeField(field))
-);
+$formFields.forEach((field) => {
+  field.addEventListener('blur', () => validadeField(field));
+});
 
 function validadeField(input) {
-  if (input.name === 'cpf') isValidCPF(input);
+  switch (input.name) {
+    case 'cpf':
+      isValidCPF(input);
+      break;
+
+    case 'aniversario':
+      has18Years(input);
+      break;
+
+    default:
+      break;
+  }
 }
