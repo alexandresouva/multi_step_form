@@ -6,6 +6,7 @@ import has18Years from './ageValidator.js';
 
 const $formFields = document.querySelectorAll('[required]');
 const $cpf = document.querySelector('#cpf');
+const $form = document.querySelector('[data-formulario]');
 
 // APPLY INPUT MASKS
 $cpf.addEventListener('input', () => {
@@ -58,3 +59,19 @@ function printErrorMessage(input) {
     $errorMessage.textContent = '';
   }
 }
+
+// SAVE DATA IN LOCAL STORAGE
+$form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const answersList = {
+    name: e.target.elements['nome'].value,
+    email: e.target.elements['email'].value,
+    rg: e.target.elements['rg'].value,
+    cpf: e.target.elements['cpf'].value,
+    birthday: e.target.elements['aniversario'].value,
+  };
+
+  localStorage.setItem('register', JSON.stringify(answersList));
+  window.location.href = './abrir-conta-form-2.html';
+});
