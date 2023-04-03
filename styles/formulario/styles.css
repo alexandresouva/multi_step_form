@@ -140,6 +140,7 @@
 .formulario__mensagem,
 .formulario__camera {
     display: none;
+    margin-top: 2.5rem;
 }
 
 .formulario__mensagem--sucesso,
