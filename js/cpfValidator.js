@@ -3,17 +3,12 @@
 export default function isValidCPF(field) {
   const cpf = field.value.replace(/\.|-/g, '');
 
-  // if (cpf.length !== 11) return alert('Digite um CPF válido');
-
-  if (
+  const validateCPF =
     !hasOnlyRepeatedNumbers(cpf) &&
     validateFirstDigit(cpf) &&
-    validateSecondDigit(cpf)
-  ) {
-    console.log('CPF válido.');
-  } else {
-    console.log('Esse CPF não é válido.');
-  }
+    validateSecondDigit(cpf);
+
+  return validateCPF;
 }
 
 function hasOnlyRepeatedNumbers(cpf) {

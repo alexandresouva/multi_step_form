@@ -126,7 +126,10 @@
 }
 
 .mensagem-erro {
+    display: block;
     color: red;
+    font-size: .9rem;
+    margin-top: .5rem;
 }
 
 .campo__escrita--erro {
